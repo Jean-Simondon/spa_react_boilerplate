@@ -1,0 +1,82 @@
+{
+  "name": "boilerplate_react_spa",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@date-io/date-fns": "^1.3.13",
+    "@date-io/luxon": "^1.3.13",
+    "@hookform/error-message": "^0.0.5",
+    "@hookform/resolvers": "^1.3.4",
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/pickers": "^3.2.10",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@tinymce/tinymce-react": "^3.12.2",
+    "axios": "^0.21.0",
+    "classnames": "^2.2.6",
+    "date-fns": "^2.16.1",
+    "file-saver": "^2.0.2",
+    "framer-motion": "^3.6.6",
+    "jwt-decode": "^3.1.2",
+    "lodash.debounce": "^4.0.8",
+    "luxon": "^1.25.0",
+    "mime": "^2.4.6",
+    "node-sass": "4.14.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^6.13.0",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.2",
+    "react-select": "^3.1.0",
+    "react-use": "^17.1.1",
+    "redux-saga": "^1.1.3",
+    "sass": "^1.43.3",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.0",
+    "vite": "^2.6.4"
+  },
+  "scripts": {
+    "dev": "vite",
+    "start": "BROWSER=none react-scripts start",
+    "build": "react-scripts build",
+    "seemless-build": "BUILD_PATH='./build-tmp' react-scripts build && rm -rf ./build && mv ./build-tmp ./build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

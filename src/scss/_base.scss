@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  font-family: $font-body;
+  color: $body-color;
+  font-size: $font-size-root;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:not(.button) {
+    color: $link-color;
+    transition: .1s color ease;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}
+
+input {
+  font-size: inherit;
+
+  &::placeholder {
+    opacity: .4;
+  }
+}
+
+h1, h2, h3, h4, h4, h6{
+  font-family: $font-title;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $color-lightgray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $color-green;
+}
+
+
+.wip{
+  background-color: #f9ff00;
+}
+
+
+.MuiPopover-paper{
+  padding: 1rem!important;
+  color: $color-darkgray!important;
+}
+
+.GK-modal{
+  padding: 0 30px;
+  text-align: center;
+  width: 280px;
+  h3{
+    border: none!important;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  img{
+    width: 100px;
+  }
+  button{
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+#preprod_bandeau{
+  position: absolute;
+  font-size: 24px;
+  color: white;
+  z-index: 600;
+  background-color: $color-red;
+  padding: .5rem;
+  max-width: 30rem;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.4s all;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+
+  p {
+    position: relative;
+    margin: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    bottom: -15px;
+    background-color: $color-red;
+    transform: rotate(45deg);
+  }
+
+  &.hovered {
+    transform: translateY(-100%);
+  }
+}
+
+.odooIdBullet{
+  background-color: $color-odoo;
+  color: white;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.MuiPickersModal-dialogRootWider {
+  min-width: 350px!important;
+}

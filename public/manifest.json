@@ -1,0 +1,22 @@
+{
+  "name": "Chargement de l'app Greenkub",
+  "short_name": "Aapp Greenkub",
+  "dir": "ltr",
+  "lang": "fr-FR",
+  "orientation": "any",
+  "start_url": "/",
+  "background_color": "#fff",
+  "theme_color": "#8bbf45",
+  "display": "standalone",
+  "description": "App Greenkub",
+  "icons": [
+    {
+      "src": "/logo192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/logo512.png",
+      "sizes": "512x512"
+    }
+  ]
+}
