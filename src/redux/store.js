@@ -1,21 +1,29 @@
-import { createStore, compose, applyMiddleware } from 'redux'
-import createSagaMiddleware from 'redux-saga'
+import { configureStore } from '@reduxjs/toolkit'
 
-import rootReducer from './rootReducer'
-import authReducerInit from './auth/authReducerInit'
-import rootSaga from './rootSaga'
+// reducer
+import authReducer from './authSlice'
+import snackbarReducer from './snackbarSlice'
 
-const sagaMiddleware = createSagaMiddleware()
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// middleware
+// import monitorReducerEnhancer from './enhancers/monitorReducer'
+// import loggerMiddleware from './middleware/logger'
 
-const store = createStore(
-  rootReducer,
-  {
-    authReducer: authReducerInit()
+// initial state
+// const preloadedState = {}
+
+// store creation
+const store = configureStore({
+  reducer: {
+    auth: authReducer,
+    snackbar: snackbarReducer
   },
-  composeEnhancer(applyMiddleware(sagaMiddleware))
-)
-
-sagaMiddleware.run(rootSaga)
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+  // .concat(loggerMiddleware),
+  // .contat(monitorReducerEnhancer),
+  // devTools: process.env.NODE_ENV !== 'production', // débloquer la lecture des .env par vitejs
+  // preloadedState,
+  // enhancers: [reduxBatch],
+})
 
 export default store
+
