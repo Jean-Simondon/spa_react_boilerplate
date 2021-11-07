@@ -1,23 +1,46 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { Switch, Route, useLocation, useHistory } from 'react-router-dom'
+import { authActions } from '../redux/authSlice'
 // import Snackbar from './commons/Snackbar'
 import routes from '../routes'
 
 const App = () => {
 
-  // filtre redirect si jamais les roles ne sont pas les bon
-  // si route /admin, et pas role admin, Redirect vers /
-  // si route /user et pas role user, Redirect vers /
+  // let { path, url } = useRouteMatch();
+  const history = useHistory();
+  // const dispatch = useDispatch();
+  const location = useLocation();
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
+  const role = useSelector(state => state.auth.role)
 
-    // if (props.isLoggedIn) {
-  //   return <Redirect push to="/" />
-  // }
-  
-  
+  /**
+   * Filtre si tentative d'accès au route protégé
+   * Non connecté ou pas le bon rôle
+   */
+  if( location.pathname.startsWith("/admin")) {
+    if( !isLoggedIn || ( role !== "ADMIN" && role !== "SUPER_ADMIN" )  ) {
+      // dispatch(authActions.logout());
+      history.push("/");
+    }
+  } else if( location.pathname.startsWith("/superadmin")) {
+    if( !isLoggedIn || role !== "SUPER_ADMIN" ) {
+      // dispatch(authActions.logout());
+      history.push("/");
+    }
+  } else if( location.pathname.startsWith("/dashboard")) {
+    if( !isLoggedIn || role !== "USER" ) {
+      // dispatch(authActions.logout());
+      history.push("/");
+    }
+  }
 
   return (
     <div className="app">
+
       {/* <Snackbar/> Global */}
+
+      {/* HEADER */}
       <Switch>
         {routes.map((route, idx) => {
           return route.header && (
@@ -28,7 +51,10 @@ const App = () => {
         })
         }
       </Switch>
-      <main>
+
+      <main className="page-container">
+
+        {/* SIDEBAR */}
         <Switch>
           {routes.map((route, idx) => {
             return route.sidebar && (
@@ -39,6 +65,8 @@ const App = () => {
           })
           }
         </Switch>
+
+        {/* MAIN */}
         <Switch>
           {routes.map((route, idx) => {
             return route.main && (
@@ -49,7 +77,10 @@ const App = () => {
           })
           }
         </Switch>
+
       </main>
+
+      {/* FOOTER */}
       <Switch>
         {routes.map((route, idx) => {
           return route.footer && (
@@ -60,6 +91,7 @@ const App = () => {
         })
         }
       </Switch>
+
     </div>
   )
 }

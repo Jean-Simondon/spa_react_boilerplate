@@ -103,9 +103,7 @@ export const signin = (action) => {
 
         // Fetching
         const fetchData = async (action) => {
-            console.log(action);
-            const resp = await userAPI.signin(action.name, action.email, action.password)
-            console.log(resp);
+            const resp = await userAPI.signin(action.firstname, action.lastname, action.email, action.password)
             return resp;
         }
 
@@ -113,15 +111,15 @@ export const signin = (action) => {
         let respData;
         try {
             respData = await fetchData(action);
+            return true;
             // dispatch(authSlice.actions.signinSuccess(...respData)) // si jamais un dispatch nécessaire
             // dispatch snackMSG
             // un message dans l'UI
         } catch (error) {
+            return false;
             // dispatch(authSlive.actions.signinError(...respData)) // si jamais un dispatch nécessaire
             // dispatch snackMSG
             // un message dans l'UI
-        } finally {
-            return respData;
         }
 
     }

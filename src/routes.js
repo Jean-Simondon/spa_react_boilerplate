@@ -1,86 +1,55 @@
 // Main
-import AdminDashboard from "./components/main/AdminDashboard"
-import UserDashboard from "./components/main/UserDashboard"
-import Home from "./components/main/Home"
+import AdminDashboard from "./components/main/admin/AdminDashboard"
+import SuperAdminDashboard from "./components/main/superadmin/SuperAdminDashboard"
+import UserDashboard from "./components/main/user/UserDashboard"
+import Index from "./components/main/public/Index"
 
 // Sidebar
+import SuperAdminSidebar from "./components/sidebar/SuperAdminSidebar"
 import AdminSidebar from "./components/sidebar/AdminSidebar"
 import UserSidebar from "./components/sidebar/UserSidebar"
 
 // Header
 import AdminHeader from './components/header/AdminHeader'
+import SuperAdminHeader from './components/header/SuperAdminHeader'
 import UserHeader from './components/header/UserHeader'
 import HomeHeader from './components/header/HomeHeader'
 
 // footer
 import UserFooter from './components/footer/UserFooter'
 import AdminFooter from './components/footer/AdminFooter'
+import SuperAdminFooter from './components/footer/SuperAdminFooter'
 import HomeFooter from './components/footer/HomeFooter'
-
-// Form
-import LoginForm from "./components/forms/LoginForm"
 
 const routes = [
     {
         path: '/admin',
-        // exact: true,
         header: AdminHeader,
         sidebar: AdminSidebar,
         main: AdminDashboard,
         footer: AdminFooter
     },
     {
-        path: '/user',
-        // exact: true,
+        path: '/superadmin',
+        header: SuperAdminHeader,
+        sidebar: SuperAdminSidebar,
+        main: SuperAdminDashboard,
+        footer: SuperAdminFooter
+    },
+    {
+        path: '/dashboard',
         header: UserHeader,
         sidebar: UserSidebar,
         main: UserDashboard,
         footer: UserFooter
     },
     {
-        path: '/login',
-        // exact: true,
-        header: HomeHeader,
-        main: LoginForm,
-        footer: HomeFooter,
-        mode: 'login'
-    },
-    {
-        path: '/signin',
-        exact: true,
-        header: HomeHeader,
-        sidebar: undefined,
-        main: LoginForm,
-        footer: HomeFooter,
-        mode: 'signin'
-    },
-    {
-        path: '/password-forgot',
-        exact: true,
-        header: HomeHeader,
-        sidebar: undefined,
-        main: LoginForm,
-        footer: HomeFooter,
-        mode: 'password_forgot'
-    },
-    {
-        path: '/password-reset',
-        exact: true,
-        header: HomeHeader,
-        sidebar: undefined,
-        main: LoginForm,
-        footer: HomeFooter,
-        mode: 'password_reset'
-    },
-    {
         path: '/',
-        exact: true,
         header: HomeHeader,
         sidebar: undefined,
-        main: Home,
+        main: Index,
         footer: HomeFooter,
     },
-
 ];
 
 export default routes;

@@ -13,7 +13,7 @@ import snackmsgActions from '../../redux/snackbarSlice'
 const  Snackbar = () => {
 
   const dispatch = useDispatch()
-    
+
   // const [ msgsTimeouts, setMsgsTimeouts ] = useState()
 
   // const getDerivedStateFromProps = (props, oldState) => {

@@ -1,27 +1,26 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, withRouter, useParams } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { login, signin } from '../../redux/authSlice';
-
 // import { getErrorMsgFromSymfonyResponse } from '../../../utils/helpers'
 
 const LoginForm = (props) => {
 
   const dispatch = useDispatch();
+  // let history = useHistory();
 
   // const loginErrorMsg = useSelector(state => state.auth.loginErrorMsg)
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
 
-  const [ email, setEmail ] = useState('');
-  const [ password, setPassword ] = useState('');
-  const [ name, setName ] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
 
-  const [ emailError, setEmailError ] = useState('');
-  const [ passwordError, setPasswordError ] = useState('');
-  const [ nameError, setNameError ] = useState('');
-
-  // if( isLoggedIn && props.mode == )
-
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [firstnameError, setFirstnameError] = useState('');
+  const [lastnameError, setLastnameError] = useState('');
 
   const onFormSubmit = (target) => {
     target.preventDefault()
@@ -29,11 +28,11 @@ const LoginForm = (props) => {
     let isFormValid = true;
 
     // nom d'utilisateur requis pour la création de l'utilisateur
-    if ( props.mode === "signin" && name.trim().length === 0) {
-      setNameError("Le nom d'utilisateur est requis");
+    if (props.mode === "signin" && firstname.trim().length === 0) {
+      setFirstnameError("Le nom d'utilisateur est requis");
       isFormValid = false;
     } else {
-      setNameError('');
+      setFirstnameError('');
     }
 
     // vérifier la forme de l'adresse
@@ -45,22 +44,22 @@ const LoginForm = (props) => {
     }
 
     // password requis si création ou authentification
-    if ( ( props.mode === "login" || props.mode === "sigin" ) && password.trim().length === 0) {
+    if ((props.mode === "login" || props.mode === "sigin") && password.trim().length === 0) {
       setPasswordError("Le mot de passe est requis");
       isFormValid = false;
     } else {
       setPasswordError('');
     }
 
-    if( isFormValid ) {
+    if (isFormValid) {
 
-      if( props.mode == "login" ) {
-        dispatch(login({email, password}));
-      } else if ( props.mode == "signin" ) {
-        dispatch(signin({name, email, password}))
-      } else if ( props.mode == "forget-password" ) {
+      if (props.mode == "login") {
+        dispatch(login({ email, password }));
+      } else if (props.mode == "signin") {
+        dispatch(signin({ firstname, lastname, email, password }))
+      } else if (props.mode == "forget-password") {
         console.log("test forget password")
-      } else if ( props.mode == "reset-password" ) {
+      } else if (props.mode == "reset-password") {
         console.log("test reset password")
       }
 
@@ -151,8 +150,11 @@ const LoginForm = (props) => {
 
   // }
 
-  const onChangeNameHandler = (event) => {
-    setName(event.target.value);
+  const onChangeFirstnameHandler = (event) => {
+    setFirstname(event.target.value);
+  }
+  const onChangeLastnameHandler = (event) => {
+    setLastname(event.target.value);
   }
   const onChangeEmailHandler = (event) => {
     setEmail(event.target.value);
@@ -163,91 +165,98 @@ const LoginForm = (props) => {
 
   return (
     <>
-      { props.mode === 'login' &&
-      <form onSubmit={onFormSubmit}>
+      {props.mode === 'login' &&
+        <form onSubmit={onFormSubmit}>
 
-        <div>
-          <input
-            type="text"
-            placeholder="Adresse email"
-            value={email}
-            onChange={onChangeEmailHandler}
-            autoComplete="on"
-          />
-          <small>{ emailError }</small>
-        </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Adresse email"
+              value={email}
+              onChange={onChangeEmailHandler}
+              autoComplete="on"
+            />
+            <small>{emailError}</small>
+          </div>
 
-        <div>
-          <input
-            type='password'
-            placeholder="Mot de passe"
-            value={password}
-            onChange={onChangePasswordHandler}
-            autoComplete="on"
-          />
-          <small>{ passwordError }</small>
-        </div>
+          <div>
+            <input
+              type='password'
+              placeholder="Mot de passe"
+              value={password}
+              onChange={onChangePasswordHandler}
+              autoComplete="on"
+            />
+            <small>{passwordError}</small>
+          </div>
 
-        <button type="submit">
-          <span>Connexion</span>
-        </button>
+          <button type="submit">
+            <span>Connexion</span>
+          </button>
 
-        <div>
-          <Link to="/signin">Pas encore inscrit ?</Link>
-        </div>
+          <div>
+            <Link to="/signin">Pas encore inscrit ?</Link>
+          </div>
 
-        <div>
-          <Link to="/">Retour</Link>
-        </div>
-
-      </form>
+        </form>
       }
 
-    { props.mode === 'signin' &&
-      <form onSubmit={onFormSubmit}>
+      {props.mode === 'signin' &&
+        <form onSubmit={onFormSubmit}>
 
-        <div>
-          <input
-            type="text"
-            placeholder="Nom d'utilisateur"
-            value={name}
-            onChange={onChangeNameHandler}
-            autoComplete="on"
-          />
-          <small>{ nameError }</small>
-        </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Nom d'utilisateur"
+              value={firstname}
+              onChange={onChangeFirstnameHandler}
+              autoComplete="on"
+            />
+            <small>{firstnameError}</small>
+          </div>
 
-        <div>
-          <input
-            type="text"
-            placeholder="Adresse email"
-            value={email}
-            onChange={onChangeEmailHandler}
-            autoComplete="on"
-          />
-          <small>{ emailError }</small>
-        </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Nom d'utilisateur"
+              value={lastname}
+              onChange={onChangeLastnameHandler}
+              autoComplete="on"
+            />
+            <small>{lastnameError}</small>
+          </div>
 
-        <div>
-          <input
-            type='password'
-            placeholder="Mot de passe"
-            value={password}
-            onChange={onChangePasswordHandler}
-            autoComplete="on"
-          />
-          <small>{ passwordError }</small>
-        </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Adresse email"
+              value={email}
+              onChange={onChangeEmailHandler}
+              autoComplete="on"
+            />
+            <small>{emailError}</small>
+          </div>
 
-        <button type="submit">
-          <span>Inscription</span>
-        </button>
+          <div>
+            <input
+              type='password'
+              placeholder="Mot de passe"
+              value={password}
+              onChange={onChangePasswordHandler}
+              autoComplete="on"
+            />
+            <small>{passwordError}</small>
+          </div>
 
-        <div>
-          <Link to="/login">Retour</Link>
-        </div>
+          <button type="submit">
+            <span>Inscription</span>
+          </button>
 
-      </form>
+          <div>
+            <Link to="/login">Retour</Link>
+          </div>
+
+        </form>
       }
 
 
@@ -299,4 +308,4 @@ const LoginForm = (props) => {
 
 }
 
-export default withRouter(LoginForm)
+export default LoginForm

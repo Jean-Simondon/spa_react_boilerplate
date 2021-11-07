@@ -9,9 +9,10 @@ const userAPI = {
     })
   },
 
-  signin(name, email, plainPassword) {
+  signin(firstname, lastname, email, plainPassword) {
     return axiosInstance.post('/profile/new', {
-      name,
+      firstname,
+      lastname,
       email,
       plainPassword
     })

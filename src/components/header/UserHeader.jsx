@@ -1,21 +1,51 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import { authActions } from '../../redux/authSlice'
+import {
+  //   ArrowDropDown as ArrowDropDownIcon,
+  ExitToApp as ExitToAppIcon,
+  //   Menu as MenuIcon,
+  //   AccountCircle as AccountCircleIcon
+} from '@material-ui/icons'
 
 const UserHeader = (props) => {
 
+  let history = useHistory();
+  let { path, url } = useRouteMatch();
+  const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user)
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+  const role = useSelector(state => state.auth.role)
+
+  if (!isLoggedIn) {
+    history.push("/");
+  }
 
   return (
-    <>
-      <Link to="/">link 1</Link>
-      <Link to="/">link 2</Link>
-      <Link to="/">link 3</Link>
+    <header className="header">
 
-      <span>{user.name}</span>
+      {isLoggedIn &&
+        <nav className="nav-corner">
+          <Link to="/">Home</Link>
+          {role === 'USER' && <Link to="/dashboard">Account</Link>}
+          {role === 'ADMIN' && <Link to="/admin">Dashboard</Link>}
+          {role === 'SUPER_ADMIN' &&
+            <>
+              <Link to="/admin">Dashboard</Link>
+              <Link to="/superadmin">Super Admin</Link>
+            </>
+          }
+          <button onClick={() => dispatch(authActions.logout())}>
+            <ExitToAppIcon />
+            <span>Déconnexion</span>
+          </button>
+        </nav>
+      }
 
-      <h2>This is the User Header</h2>
-    </>
+      <h1>This is User Header</h1>
+
+    </header>
   )
 
 }

@@ -1,8 +1,7 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory, useRouteMatch } from 'react-router-dom';
 import { authActions } from '../../redux/authSlice'
-
 import {
   //   ArrowDropDown as ArrowDropDownIcon,
   ExitToApp as ExitToAppIcon,
@@ -10,26 +9,33 @@ import {
   //   AccountCircle as AccountCircleIcon
 } from '@material-ui/icons'
 
-const HomeHeader = (props) => {
 
+const SuperAdminHeader = (props) => {
+
+  let history = useHistory();
+  let { path, url } = useRouteMatch();
   const dispatch = useDispatch();
-
+  const user = useSelector(state => state.auth.user)
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
-  // const user = useSelector(state => state.auth.user)
   const role = useSelector(state => state.auth.role)
+
+  if (!isLoggedIn) {
+    history.push("/");
+  }
 
   return (
     <header className="header">
 
-      <nav className="nav-list">
-        <Link to="/">Home</Link>
-        <Link to="/page1">Page 1</Link>
-        <Link to="/page2">Page 2</Link>
-        <Link to="/page3">Page 3</Link>
-      </nav>
+      {/* <nav className="nav-list"> */}
+        {/* <Link to="/">Home</Link> */}
+        {/* <Link to={`${url}/page1`}>Page 1</Link>
+        <Link to={`${url}/page2`}>Page 2</Link>
+        <Link to={`${url}/page3`}>Page 3</Link> */}
+      {/* </nav> */}
 
       {isLoggedIn &&
         <nav className="nav-corner">
+          <Link to="/">Home</Link>
           {role === 'USER' && <Link to="/dashboard">Account</Link>}
           {role === 'ADMIN' && <Link to="/admin">Dashboard</Link>}
           {role === 'SUPER_ADMIN' &&
@@ -45,18 +51,11 @@ const HomeHeader = (props) => {
         </nav>
       }
 
-      {!isLoggedIn &&
-        <nav className="nav-corner">
-          <Link to="/login"><button>Login</button></Link>
-        </nav>
-      }
-
-      <h1>This is home header</h1>
+    <h1>This is Super Admin header</h1>
 
     </header>
   )
 
 }
 
-export default HomeHeader
-
+export default SuperAdminHeader

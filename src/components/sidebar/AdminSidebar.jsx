@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const AdminSidebar = () => {
 
     return (
-      <div>
-        <h2>This is the Admin sidebar</h2>
-      </div>
+      <nav>
+        <Link to="/admin/page1">Page 1</Link>
+        <Link to="/admin/page2">Page 2</Link>
+        <Link to="/admin/page3">Page 3</Link>
+      </nav>
     )
 
 }

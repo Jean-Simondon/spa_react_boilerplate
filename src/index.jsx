@@ -9,7 +9,7 @@ import reportWebVitals from './utils/reportWebVitals'
 import store from './redux/store'
 
 import App from './components/App'
-// import './scss/index.scss'
+import './scss/index.scss'
 
 ReactDOM.render(
   <React.StrictMode>
