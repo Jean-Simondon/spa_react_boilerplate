@@ -9,6 +9,7 @@ import {
   //   Menu as MenuIcon,
   //   AccountCircle as AccountCircleIcon
 } from '@material-ui/icons'
+import '.css/header.scss'
 
 const HomeHeader = (props) => {
 
@@ -50,8 +51,6 @@ const HomeHeader = (props) => {
           <Link to="/login"><button>Login</button></Link>
         </nav>
       }
-
-      <h1>This is home header</h1>
 
     </header>
   )

@@ -8,7 +8,7 @@ import Page3 from './Page3'
 const SuperAdminDashboard = () => {
 
   return (
-    <>
+    <div className="center">
       <h1>SUPER ADMIN DASHBOARD</h1>
       <Switch>
         <Route path="/superadmin/page1"><Page1/></Route>
@@ -16,7 +16,7 @@ const SuperAdminDashboard = () => {
         <Route path="/superadmin/page3"><Page3/></Route>
         <Route path="/superadmin/"><Home /></Route>
       </Switch>
-    </>
+    </div>
   )
 
 }

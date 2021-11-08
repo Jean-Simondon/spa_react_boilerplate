@@ -1,9 +1,10 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Switch, Route, useLocation, useHistory } from 'react-router-dom'
-import { authActions } from '../redux/authSlice'
+// import { authActions } from '../redux/authSlice'
 // import Snackbar from './commons/Snackbar'
-import routes from '../routes'
+import routes from './routes'
+import './App.scss'
 
 const App = () => {
 
@@ -18,17 +19,21 @@ const App = () => {
    * Filtre si tentative d'accès au route protégé
    * Non connecté ou pas le bon rôle
    */
+  let withside_bar = ' without-sidebar';
   if( location.pathname.startsWith("/admin")) {
+    withside_bar = ' with-sidebar';
     if( !isLoggedIn || ( role !== "ADMIN" && role !== "SUPER_ADMIN" )  ) {
       // dispatch(authActions.logout());
       history.push("/");
     }
   } else if( location.pathname.startsWith("/superadmin")) {
+    withside_bar = ' with-sidebar';
     if( !isLoggedIn || role !== "SUPER_ADMIN" ) {
       // dispatch(authActions.logout());
       history.push("/");
     }
   } else if( location.pathname.startsWith("/dashboard")) {
+    withside_bar = ' with-sidebar';
     if( !isLoggedIn || role !== "USER" ) {
       // dispatch(authActions.logout());
       history.push("/");
@@ -52,7 +57,7 @@ const App = () => {
         }
       </Switch>
 
-      <main className="page-container">
+      <main className={"page-container" + withside_bar}>
 
         {/* SIDEBAR */}
         <Switch>

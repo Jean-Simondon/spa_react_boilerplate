@@ -9,7 +9,7 @@ const LoginPage = (props) => {
       <p>user@user.net / jean</p>
       <p>admin@admin.net / jean</p>
       <p>supadmin@supadmin.net / jean</p>
-      <LoginForm {...props} />
+      <LoginForm className="form" {...props} />
     </>
   )
 

@@ -8,6 +8,7 @@ import {
   //   Menu as MenuIcon,
   //   AccountCircle as AccountCircleIcon
 } from '@material-ui/icons'
+import '.css/header.scss'
 
 const UserHeader = (props) => {
 
@@ -25,25 +26,21 @@ const UserHeader = (props) => {
   return (
     <header className="header">
 
-      {isLoggedIn &&
-        <nav className="nav-corner">
-          <Link to="/">Home</Link>
-          {role === 'USER' && <Link to="/dashboard">Account</Link>}
-          {role === 'ADMIN' && <Link to="/admin">Dashboard</Link>}
-          {role === 'SUPER_ADMIN' &&
-            <>
-              <Link to="/admin">Dashboard</Link>
-              <Link to="/superadmin">Super Admin</Link>
-            </>
-          }
-          <button onClick={() => dispatch(authActions.logout())}>
-            <ExitToAppIcon />
-            <span>Déconnexion</span>
-          </button>
-        </nav>
-      }
-
-      <h1>This is User Header</h1>
+      <nav className="nav-corner">
+        <Link to="/">Home</Link>
+        {role === 'USER' && <Link to="/dashboard">Account</Link>}
+        {role === 'ADMIN' && <Link to="/admin">Dashboard</Link>}
+        {role === 'SUPER_ADMIN' &&
+          <>
+            <Link to="/admin">Dashboard</Link>
+            <Link to="/superadmin">Super Admin</Link>
+          </>
+        }
+        <button onClick={() => dispatch(authActions.logout())}>
+          <ExitToAppIcon />
+          <span>Déconnexion</span>
+        </button>
+      </nav>
 
     </header>
   )

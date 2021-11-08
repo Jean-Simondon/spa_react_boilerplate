@@ -7,6 +7,7 @@ import {
   Close as CloseIcon
 } from '@material-ui/icons/';
 import { CSSTransition } from "react-transition-group"
+import '.css/snackbar.scss'
 
 import snackmsgActions from '../../redux/snackbarSlice'
 

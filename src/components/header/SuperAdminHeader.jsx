@@ -8,7 +8,7 @@ import {
   //   Menu as MenuIcon,
   //   AccountCircle as AccountCircleIcon
 } from '@material-ui/icons'
-
+import '.css/header.scss'
 
 const SuperAdminHeader = (props) => {
 
@@ -26,32 +26,22 @@ const SuperAdminHeader = (props) => {
   return (
     <header className="header">
 
-      {/* <nav className="nav-list"> */}
-        {/* <Link to="/">Home</Link> */}
-        {/* <Link to={`${url}/page1`}>Page 1</Link>
-        <Link to={`${url}/page2`}>Page 2</Link>
-        <Link to={`${url}/page3`}>Page 3</Link> */}
-      {/* </nav> */}
+      <nav className="nav-corner">
+        <Link to="/">Home</Link>
+        {role === 'USER' && <Link to="/dashboard">Account</Link>}
+        {role === 'ADMIN' && <Link to="/admin">Dashboard</Link>}
+        {role === 'SUPER_ADMIN' &&
+          <>
+            <Link to="/admin">Dashboard</Link>
+            <Link to="/superadmin">Super Admin</Link>
+          </>
+        }
+        <button onClick={() => dispatch(authActions.logout())}>
+          <ExitToAppIcon />
+          <span>Déconnexion</span>
+        </button>
+      </nav>
 
-      {isLoggedIn &&
-        <nav className="nav-corner">
-          <Link to="/">Home</Link>
-          {role === 'USER' && <Link to="/dashboard">Account</Link>}
-          {role === 'ADMIN' && <Link to="/admin">Dashboard</Link>}
-          {role === 'SUPER_ADMIN' &&
-            <>
-              <Link to="/admin">Dashboard</Link>
-              <Link to="/superadmin">Super Admin</Link>
-            </>
-          }
-          <button onClick={() => dispatch(authActions.logout())}>
-            <ExitToAppIcon />
-            <span>Déconnexion</span>
-          </button>
-        </nav>
-      }
-
-    <h1>This is Super Admin header</h1>
 
     </header>
   )

@@ -1,0 +1,40 @@
+// Dark mode
+// =============
+@include dark {
+    --color-dark: #f0f3ff;
+    --color: #d4dcff;
+    --color-light: #8491c7;
+    --color-inversed: #d4dcff;
+    --color-inversed60: #d4dcff99;
+    --contrast: #5396e7;
+    --gap: 20px;
+    --space: 8px;
+    --border: #2a2e5e;
+    --border-light: #161e3b;
+    --background: #171933;
+    --background-light: #1b1e3d;
+    --card-bg: #22244d;
+    --card-bg-footer: #1d1f42;
+    --shadow: rgba(0, 0, 0, 0.2);
+    --play: #1d1d3a;
+    --list-hover: #282a5a;
+    --card-footer: #{darken(#202248, 3)};
+    --skeleton: #0f1224;
+    --skeleton-wave: #171933;
+    --red: #A6333F;
+    --selection-background: #3D59A1;
+    --header-background: #1b1e3dF2;
+    --header-background-inversed: #263880F2;
+  
+    .lighten-dark {
+      filter: brightness(10);
+    }
+  
+    youtube-player,
+    premium-player {
+      --color: #111426;
+    }
+    waves-shape {
+      --contrast: #263880;
+    }
+  }

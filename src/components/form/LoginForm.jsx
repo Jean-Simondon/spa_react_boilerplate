@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from "react-router-dom"
 import { login, signin } from '../../redux/authSlice';
 // import { getErrorMsgFromSymfonyResponse } from '../../../utils/helpers'
+import '.css/form.scss'
 
 const LoginForm = (props) => {
 

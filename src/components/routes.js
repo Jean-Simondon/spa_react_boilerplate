@@ -1,25 +1,25 @@
 // Main
-import AdminDashboard from "./components/main/admin/AdminDashboard"
-import SuperAdminDashboard from "./components/main/superadmin/SuperAdminDashboard"
-import UserDashboard from "./components/main/user/UserDashboard"
-import Index from "./components/main/public/Index"
+import AdminDashboard from "./main/admin/AdminDashboard"
+import SuperAdminDashboard from "./main/superadmin/SuperAdminDashboard"
+import UserDashboard from "./main/user/UserDashboard"
+import Index from "./main/public/Index"
 
 // Sidebar
-import SuperAdminSidebar from "./components/sidebar/SuperAdminSidebar"
-import AdminSidebar from "./components/sidebar/AdminSidebar"
-import UserSidebar from "./components/sidebar/UserSidebar"
+import SuperAdminSidebar from "./sidebar/SuperAdminSidebar"
+import AdminSidebar from "./sidebar/AdminSidebar"
+import UserSidebar from "./sidebar/UserSidebar"
 
 // Header
-import AdminHeader from './components/header/AdminHeader'
-import SuperAdminHeader from './components/header/SuperAdminHeader'
-import UserHeader from './components/header/UserHeader'
-import HomeHeader from './components/header/HomeHeader'
+import AdminHeader from './header/AdminHeader'
+import SuperAdminHeader from './header/SuperAdminHeader'
+import UserHeader from './header/UserHeader'
+import HomeHeader from './header/HomeHeader'
 
 // footer
-import UserFooter from './components/footer/UserFooter'
-import AdminFooter from './components/footer/AdminFooter'
-import SuperAdminFooter from './components/footer/SuperAdminFooter'
-import HomeFooter from './components/footer/HomeFooter'
+import UserFooter from './footer/UserFooter'
+import AdminFooter from './footer/AdminFooter'
+import SuperAdminFooter from './footer/SuperAdminFooter'
+import HomeFooter from './footer/HomeFooter'
 
 const routes = [
     {
