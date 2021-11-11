@@ -23,28 +23,28 @@ import HomeFooter from './footer/HomeFooter'
 
 const routes = [
     {
-        path: '/admin',
+        path: '/admin/',
         header: AdminHeader,
         sidebar: AdminSidebar,
         main: AdminDashboard,
         footer: AdminFooter
     },
     {
-        path: '/superadmin',
+        path: '/superadmin/',
         header: SuperAdminHeader,
         sidebar: SuperAdminSidebar,
         main: SuperAdminDashboard,
         footer: SuperAdminFooter
     },
     {
-        path: '/dashboard',
+        path: '/dashboard/',
         header: UserHeader,
         sidebar: UserSidebar,
         main: UserDashboard,
         footer: UserFooter
     },
     {
-        path: '/',
+        path: '/*',
         header: HomeHeader,
         sidebar: undefined,
         main: Index,
@@ -96,7 +96,7 @@ export default routes;
 // </li>
 // </ul>
 
-// <Switch>
+// <Routes>
 // {routes.map((route, index) => (
 //     // You can render a <Route> in as many places
 //     // as you want in your app. It will render along
@@ -112,9 +112,9 @@ export default routes;
 //     children={<route.sidebar />}
 //     />
 // ))}
-// </Switch>
+// </Routes>
 
-// <Switch>
+// <Routes>
 // {routes.map((route, index) => (
 //     // Render more <Route>s with the same paths as
 //     // above, but different components this time.
@@ -125,7 +125,7 @@ export default routes;
 //     children={<route.main />}
 //     />
 // ))}
-// </Switch>
+// </Routes>
 
 
 // Route Récursive

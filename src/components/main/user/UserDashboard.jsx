@@ -1,22 +1,21 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
-import Home from './Home'
-import Page1 from './Page1'
-import Page2 from './Page2'
-import Page3 from './Page3'
+import { Routes, Route, Outlet } from 'react-router-dom'
+
+import UserHeader from '../../header/UserHeader'
+import UserSidebar from '../../sidebar/UserSidebar'
+import UserFooter from '../../footer/UserFooter'
 
 const UserDashboard = () => {
 
   return (
-    <div className="center">
-      <h1>USER DASHBOARD</h1>
-      <Switch>
-        <Route path="/dashboard/page1"><Page1/></Route>
-        <Route path="/dashboard/page2"><Page2/></Route>
-        <Route path="/dashboard/page3"><Page3/></Route>
-        <Route path="/dashboard/"><Home /></Route>
-      </Switch>
-    </div>
+    <main className="">
+      <UserHeader />
+      <div className="flex row page-container">
+        <UserSidebar />
+        <Outlet />
+      </div>
+      <UserFooter />
+    </main>
   )
 }
 

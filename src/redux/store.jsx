@@ -17,10 +17,10 @@ const store = configureStore({
     auth: authReducer,
     snackbar: snackbarReducer
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
   // .concat(loggerMiddleware),
   // .contat(monitorReducerEnhancer),
-  // devTools: process.env.NODE_ENV !== 'production', // débloquer la lecture des .env par vitejs
+  devTools: process.env.NODE_ENV !== 'production',
   // preloadedState,
   // enhancers: [reduxBatch],
 })

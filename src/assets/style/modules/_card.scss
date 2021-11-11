@@ -231,7 +231,7 @@
 
   width: 17px;
   height: 13px;
-  background: url(/images/check.svg);
+  // background: url(/images/check.svg);
 }
 .card.is-completed::before,
 .is-completed .card::before {
@@ -289,7 +289,7 @@
     width: 24px;
     height: 24px;
     transform: translate(-50%, -50%);
-    background: url(/images/play.svg) center center no-repeat;
+    // background: url(/images/play.svg) center center no-repeat;
   }
 }
 

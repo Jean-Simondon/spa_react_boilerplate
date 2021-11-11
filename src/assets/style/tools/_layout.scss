@@ -7,7 +7,6 @@
 \* ------------------------- */
 
 
-
 // Conteneur
 // ==================
 :root {
@@ -92,7 +91,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-  
+
 // Ratios
 // ==================
 .ratio {
@@ -110,13 +109,13 @@
       height: 100%;
     }
 }
-  
+
 // Block
 // =============
 .inline {
     display: inline;
 }
-  
+
 // Horizontal
 // ==================
 .flex {
@@ -128,15 +127,15 @@
       min-width: 0;
     }
 }
-  
+
 .end {
     justify-content: flex-end;
 }
-  
+
 .stretch {
     align-items: stretch;
 }
-  
+
 .flex-md {
     @include up(500) {
       display: flex;
@@ -144,7 +143,7 @@
       justify-content: space-between;
     }
 }
-  
+
 .flex-start {
     justify-content: flex-start;
 }
@@ -210,20 +209,20 @@
       grid-template-columns: repeat(3, 1fr);
     }
 }
-  
+
 .grid.fit {
     grid-template-columns: repeat(auto-fit, minmax(var(--col, 275px), 1fr));
 }
-  
+
 .grid .full,
 .grid2 .full {
     grid-column: 1 / -1;
 }
-  
+
 .grid .end {
     justify-content: flex-end;
 }
-  
+
 // Stacks
 // ==================
 %stack,
@@ -240,21 +239,21 @@
       min-width: 0;
     }
 }
-  
+
 .stack-large {
     --gap: 4;
 }
-  
+
 .stack-separated {
     --gap: 3;
     --gap-separated: var(--gap);
     grid-gap: calc(var(--gap) * var(--space) * 2);
 }
-  
+
 .stack-separated > * + * {
     position: relative;
 }
-  
+
 .stack-separated > * + *::before {
     content: '';
     position: absolute;
@@ -284,7 +283,7 @@
     margin-right: calc(var(--gap) * var(--space) * 0.5);
     margin-bottom: calc(var(--gap) * var(--space));
 }
-  
+
 .hstack-large > * + * {
     margin-left: space(4);
 }
@@ -383,4 +382,29 @@
     @include down(700) {
         display: none;
     }
+}
+
+
+.flex {
+    display: flex;
+
+    &.row {
+        flex-direction: row;
+    }
+    
+    &.col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &.center {
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+
+.page-container {
+  width: 100vw;
+  min-height: 100vh;
 }

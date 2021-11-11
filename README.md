@@ -1,18 +1,20 @@
 
 # TODO à ajouter au boilerplate
 
-#### validation de formulaire
-#### gestion d'erreur de retour de symfony
-#### graphique
-#### Composant CSS
-#### Mettre en place outils de dev et débug
+#### Terminer validation de formulaire de login et contact
+#### Gestion d'erreur de retour de symfony
+#### Graphique et autre librairie JS
+#### Pptimisation (voir Udemy)
+#### Mettre en place outils de dev et débug  (voir Udemy)
 #### Mettre en place vite js
-#### Mettre en place NextJS et SSR
+#### Mettre en place NextJS et SSR (voir Udemy)
 #### Fonctionnalité de CMS
-#### Test unitaire
-#### Animation
-#### Custom Hook
-#### Tester Typescript
+#### Test unitaire (voir Udemy)
+#### Animation (voir Udemy)
+#### Custom Hook (voir Udemy)
 #### Responsive
-#### Tester les Portals
+#### Mettre en place Typescript (voir Udemy)
+
+
+#### Look for static website hosting services
 

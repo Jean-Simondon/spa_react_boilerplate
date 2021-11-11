@@ -9,7 +9,7 @@ import {
   //   Menu as MenuIcon,
   //   AccountCircle as AccountCircleIcon
 } from '@material-ui/icons'
-import '.css/header.scss'
+import styles from './css/Header.module.scss'
 
 const HomeHeader = (props) => {
 
@@ -20,17 +20,17 @@ const HomeHeader = (props) => {
   const role = useSelector(state => state.auth.role)
 
   return (
-    <header className="header">
+    <header className={styles.header}>
 
-      <nav className="nav-list">
+      <nav className={styles.nav_list}>
         <Link to="/">Home</Link>
         <Link to="/page1">Page 1</Link>
-        <Link to="/page2">Page 2</Link>
-        <Link to="/page3">Page 3</Link>
+        <Link to="page2">Page 2</Link>
+        <Link to="page3">Page 3</Link>
       </nav>
 
       {isLoggedIn &&
-        <nav className="nav-corner">
+        <nav className={styles.nav_corner}>
           {role === 'USER' && <Link to="/dashboard">Account</Link>}
           {role === 'ADMIN' && <Link to="/admin">Dashboard</Link>}
           {role === 'SUPER_ADMIN' &&
@@ -47,7 +47,7 @@ const HomeHeader = (props) => {
       }
 
       {!isLoggedIn &&
-        <nav className="nav-corner">
+        <nav className={styles.nav_corner}>
           <Link to="/login"><button>Login</button></Link>
         </nav>
       }

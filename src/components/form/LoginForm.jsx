@@ -1,14 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect, useReducer } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useHistory } from "react-router-dom"
-import { login, signin } from '../../redux/authSlice';
+import { Link, useNavigate } from "react-router-dom"
+import { login, signin } from '../../redux/authSlice'
+import styled from 'styled-components'
 // import { getErrorMsgFromSymfonyResponse } from '../../../utils/helpers'
-import '.css/form.scss'
+
+import styles from './css/form.module.scss'
+
+// const Button = styled.button`
+//     color: blue;
+//     background-color: ${props => ( props.invalid ? 'red' : 'blue')};
+    
+//     /* @media (max-width: 760px) {
+//       width: 400px;
+//     } */
+
+//     &:hover {
+//       box-shadow: 4px 4px 10px;
+//     }
+//   `;
+
+const formReducer = (state, action) => {
+  switch(action.type) {
+    case 'EMAIL_INPUT':
+      return { value: '', isValid: false }
+      break;
+    case 'PASSWORD_INPUT':
+      return { value: '', isValid: false }
+      break;
+    default:
+      return { value: '', isValid: false }
+  }
+};
+
+
 
 const LoginForm = (props) => {
 
   const dispatch = useDispatch();
-  // let history = useHistory();
+  const emailInputRef = useRef();
+
+  const [ formIsValid, setFormIsValid ] = useState(false);
+  const [ isValid, setIsValid ] = useState(false);
 
   // const loginErrorMsg = useSelector(state => state.auth.loginErrorMsg)
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
@@ -23,16 +56,53 @@ const LoginForm = (props) => {
   const [firstnameError, setFirstnameError] = useState('');
   const [lastnameError, setLastnameError] = useState('');
 
+  /**
+   * Bad practice, using other state to validate some other sate
+   * like valid form from state value
+   * if update a state depending on another state, useReducer()
+   */
+  const [ emailState, dispatchForm ] = useReducer( formReducer, { value: '', isValid: false })
+  // use emailStat.isValid
+  // dispatchForm({ type: 'USER_INPUT', value: email });
+
+
+  // const { isValid, emailIsValid } = emailState;
+  // const { isValid, passwordIsValid } = passwordState;
+  // end use the property in useEffect dependency
+
+ 
+  useEffect(() => {
+    // Deboucing : run only after 500ms without side effect
+    const identifier = setTimeout(() => {
+      setFormIsValid( email.includes('@') && password.trim().length > 6 )
+    }, 500);
+     // do not run for the very first sideEffect, 
+    return () => {
+      clearTimeout(identifier);
+    };
+  }, [email, password]); // in dependencies, do not add what is state updateing function like set...
+
+
+  /**
+   * add : wasTouched
+   * loosed focus
+   * 
+   */
+
+
   const onFormSubmit = (target) => {
     target.preventDefault()
 
     let isFormValid = true;
+
+    console.log(emailInputRef.current.value); // only to read value 
 
     // nom d'utilisateur requis pour la création de l'utilisateur
     if (props.mode === "signin" && firstname.trim().length === 0) {
       setFirstnameError("Le nom d'utilisateur est requis");
       isFormValid = false;
     } else {
+      // setFirstnameError( prevState => prevState);
       setFirstnameError('');
     }
 
@@ -170,12 +240,17 @@ const LoginForm = (props) => {
         <form onSubmit={onFormSubmit}>
 
           <div>
+            <label htmlFor="email" ></label>
             <input
+              id="email"
+              // className={`form-control ${!isValid ? 'invalid' : ''}`}
+              className={!isValid && ' old-invalid'}
               type="text"
               placeholder="Adresse email"
               value={email}
               onChange={onChangeEmailHandler}
               autoComplete="on"
+              ref={emailInputRef}
             />
             <small>{emailError}</small>
           </div>
@@ -184,6 +259,7 @@ const LoginForm = (props) => {
             <input
               type='password'
               placeholder="Mot de passe"
+              style={{color: !isValid ? 'red' : 'black'}}
               value={password}
               onChange={onChangePasswordHandler}
               autoComplete="on"
@@ -191,7 +267,11 @@ const LoginForm = (props) => {
             <small>{passwordError}</small>
           </div>
 
-          <button type="submit">
+          <button
+            className={`${styles['old-button']} ${ !isValid && styles.invalid }`}
+            type="submit"
+            // invalid={isValid}
+          >
             <span>Connexion</span>
           </button>
 
@@ -209,6 +289,7 @@ const LoginForm = (props) => {
             <input
               type="text"
               placeholder="Nom d'utilisateur"
+              style={{color: !isValid ? 'red' : 'black'}}
               value={firstname}
               onChange={onChangeFirstnameHandler}
               autoComplete="on"
@@ -220,6 +301,7 @@ const LoginForm = (props) => {
             <input
               type="text"
               placeholder="Nom d'utilisateur"
+              style={{color: !isValid ? 'red' : 'black'}}
               value={lastname}
               onChange={onChangeLastnameHandler}
               autoComplete="on"
@@ -231,6 +313,7 @@ const LoginForm = (props) => {
             <input
               type="text"
               placeholder="Adresse email"
+              style={{color: !isValid ? 'red' : 'black'}}
               value={email}
               onChange={onChangeEmailHandler}
               autoComplete="on"
@@ -242,6 +325,7 @@ const LoginForm = (props) => {
             <input
               type='password'
               placeholder="Mot de passe"
+              style={{color: !isValid ? 'red' : 'black'}}
               value={password}
               onChange={onChangePasswordHandler}
               autoComplete="on"

@@ -1,5 +1,4 @@
 
-
 // Outils
 // ==================
 @import './tools/variables';
@@ -9,7 +8,6 @@
 @import './tools/layout';
 @import './tools/typography';
 @import './tools/animations';
-@import './tools/shadow';
 @import './tools/media-queries';
 @import './tools/dark-mode';
 
@@ -22,121 +20,110 @@
 
 body {
   margin: 0;
-  font-family: $font;
-  // font-family: Avenir, Helvetica, Arial, sans-serif;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
-  // color: #2c3e50;
-  font-size: 16px;
-  color: var(--color);
-  line-height: 1.6;
-  background: var(--background);
+  box-sizing: border-box;
+  position: relative;
   scroll-margin: 100px 0 0 0;
+
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+    // font-size: $font-size-root;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: $body-color;
+  line-height: 1.6;
   word-break: break-word;
 
-  // position: relative;
-
-  // margin: 0;
-  // font-family: $font-body;
-  // color: $body-color;
-  // font-size: $font-size-root;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
-  // box-sizing: border-box;
-
-  // font-size: $font-size-root;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
-  // box-sizing: border-box;
+  background: $background;
 }
 
-body.light {
-  background: var(--background-light);
-  &::after {
-    display: none;
-  }
-}
+// body.light {
+//   background: var(--background-light);
+//   &::after {
+//     display: none;
+//   }
+// }
 
-body.header-light::after {
-  display: none;
-}
+// body.header-light::after {
+//   display: none;
+// }
+ 
+// body::after {
+//   display: none;
+//   content: '';
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 580px;
+//   height: 506px;
+//   z-index: -1;
+//   pointer-events: none;
+//   // background: url(/images/logo-overlay.svg) top left / 100% 100% no-repeat;
 
-body::after {
-  display: none;
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 580px;
-  height: 506px;
-  z-index: -1;
-  pointer-events: none;
-  background: url(/images/logo-overlay.svg) top left / 100% 100% no-repeat;
+//   @include up(700) {
+//     display: block;
+//   }
+// }
 
-  @include up(700) {
-    display: block;
-  }
-}
+// ::selection {
+//   background: $contrast;
+//   color: #fff;
+// }
 
-::selection {
-  background: var(--contrast);
-  color: #fff;
-}
+// .nav {
+//   padding: 30px;
+// }
 
-.nav {
-  padding: 30px;
-}
+// .nav ul {
+//   list-style: none;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center
+// }
 
-.nav ul {
-  list-style:none;
-  display: flex;
-  flex-direction: row;
-  justify-content: center
-}
+// .a {
+//   margin: 0 10px 0 10px;
+//   font-weight: bold;
+//   color: #2c3e50;
+// }
 
-.a {
-  margin: 0 10px 0 10px;
-  font-weight: bold;
-  color: #2c3e50;
-}
+// .a.router-link-exact-active {
+//   color: #42b983;
+// }
 
-.a.router-link-exact-active {
-  color: #42b983;
-}
+// a {
+//   text-decoration: none;
+//   color: inherit;
 
-a {
-  text-decoration: none;
-  color: inherit;
+//   &:not(.button) {
+//     color: $link-color;
+//     transition: .1s color ease;
 
-  &:not(.button) {
-    color: $link-color;
-    transition: .1s color ease;
+//     &:hover {
+//       color: $link-hover-color;
+//     }
+//   }
+// }
 
-    &:hover {
-      color: $link-hover-color;
-    }
-  }
-}
+// input {
+//   font-size: inherit;
 
-input {
-  font-size: inherit;
+//   &::placeholder {
+//     opacity: .4;
+//   }
+// }
 
-  &::placeholder {
-    opacity: .4;
-  }
-}
-
-h1, h2, h3, h4, h4, h6{
-  font-family: $font-title;
-}
+// h1, h2, h3, h4, h4, h6{
+  // font-family: $font-title;
+// }
 
 // Modules
 // ==================
-@import './modules/form';
-@import './modules/btn';
-@import './modules/card';
-@import './modules/scrollbar';
-@import '.modules/pagination';
+// @import './modules/form';
+// @import './modules/btn';
+// @import './modules/card';
+// @import './modules/scrollbar';
+// @import '.modules/pagination';
 // @import '.modules/gallery';
 // @import '.modules/alert';
 // @import '.modules/formatted';

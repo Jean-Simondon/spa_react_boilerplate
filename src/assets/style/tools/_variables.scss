@@ -1,113 +1,147 @@
-/* ------------------------- *\
+    /* ------------------------- *\
 
-          VARIABLES
+            VARIABLES
 
-\* ------------------------- */
+    \* ------------------------- */
+
 // :root {
-//     --color-dark: #000;
-//     // --color: #121c42;
-//     // --color: rgba(202,202,202,1);
-//     --color: white;
-//     --color-light: #121c4299;
-//     --color-inversed: #effbec;
-//     --color-inversed60: #effbec99;
-//     --color-transparent: #{rgba(#121c42, 0)};
-//     --contrast: #4869ee;
-//     --contrast25: #4869ee3f;
-//     --gap: 20px;
-//     --space: 8px;
-//     --border: #d5e3ec;
-//     --border-light: #e6eff4;
-//     --background-form: #f7fafb;
-//     --background: rgba(42, 42, 42, 1);
-//     --background-light: #fff;
-//     --shadow: #d8e1e8;
-//     --list-hover: var(--background);
-//     --play: #f3f9fb; // Couleur de fond du bouton play
-//     --space-section: 150px;
-//     --card-footer: #f7fafd;
-//     --card-padding: 16px;
-//     --header-height: 137px;
-//     --red: #f25353;
-//     --green: #41cf7c;
-//     --yellow: #feb32b;
-//     --yellow-alpha: #feb32b4c;
-//     --skeleton: var(--border-light);
-//     --skeleton-wave: var(--border-light);
-//     --selection-background: var(--border);
-//     --header-background: #FFFFFFF2;
-//     --header-background-inversed: #4869eeF2;
+
+    /* ------------------------- *\
+
+        PALETTE DE COULEUR
+
+    \* ------------------------- */
+
+    $color-lightgreen: #F3F8EB;
+    $color-green: #8bbf45;
+    $color-palegreen: #a6d568;
+    $color-red: #d32f2f;
+    $color-purple: #6418C3;
+    $color-odoo: #875a7b;
+    $color-pink: #E55386;
+    $color-yellow: #ffeb3b;
+    $color-darkyellow: #fbc02d;
+    $color-blue: #2196f3;
+
+    $color-lightgray: #f1f1f1;
+    $color-lightgray-2: #F2F2F2;
+    
+    $color-gray: #9e9e9e;
+    $color-gray-2: #ccc;
+    $color-darkgray: #777;
+    $color-gray-text: #444;
+
+    /* ------------------------- *\
+
+        COULEURS DES STATUS
+
+    \* ------------------------- */
+
+    $color-status-noshow: #d32f2f;
+    $color-status-analysisplu: #9c27b0;
+    $color-status-upsell: #3949ab;
+    $color-status-opportunite: #00bcd4;
+    $color-status-created: #2196f3;
+    $color-status-signed: #8bbf45;
+    $color-status-accepte-mairie: #8bbf45;
+    $color-status-wc: #9e9d24;
+    $color-status-declarationtravaux: #fdd835;
+    $color-status-mairie: #fdf335;
+    $color-status-planificiation: #fb8c00;
+    $color-status-attente-50: #fb8c00;
+    $color-status-closed: #616161;
+    $color-status-loss: #000000;
+
+    /* ------------------------- *\
+
+        COULEURS DES TACHES
+
+    \* ------------------------- */
+
+    $color-task-wcr: #d32f2f;
+    $color-task-analysisplu: #9c27b0;
+    $color-task-r: #00bcd4;
+    $color-task-pm: #2196f3;
+    $color-task-insertion: #8bbf45;
+    $color-task-wc: #9e9d24;
+    $color-task-decharge: #fdd835;
+    $color-task-envoyermairie: #fb8c00;
+
+    /* ------------------------- *\
+
+            VARIABLE GENERALE
+
+    \* ------------------------- */
+
+    $color-dark: #000;
+    $color: #121c42;
+    $color: rgba(202,202,202,1);
+    $color: white;
+    $color-light: #121c4299;
+    $color-inversed: #effbec;
+    $color-inversed60: #effbec99;
+    $color-transparent: #{rgba(#121c42, 0)};
+    $contrast: #4869ee;
+    $contrast25: #4869ee3f;
+    $gap: 20px;
+    $space: 8px;
+    $border: #d5e3ec;
+    $border-light: #e6eff4;
+    $background-form: #f7fafb;
+    $background: rgba(42, 42, 42, 1);
+    $background-light: #fff;
+    $shadow: #d8e1e8;
+    $list-hover: var(--background);
+    $play: #f3f9fb; // Couleur de fond du bouton play
+    $space-section: 150px;
+    $card-footer: #f7fafd;
+    $card-padding: 16px;
+    $header-height: 137px;
+    $red: #f25353;
+    $green: #41cf7c;
+    $yellow: #feb32b;
+    $yellow-alpha: #feb32b4c;
+    $skeleton: var(--border-light);
+    $skeleton-wave: var(--border-light);
+    $selection-background: var(--border);
+    $header-background: #FFFFFFF2;
+    $header-background-inversed: #4869eeF2;
+
+    $body-color: #585858;
+    $link-color: $color-darkgray;
+    $link-hover-color: $color-green;
+
+    /* ------------------------- *\
+
+                SHADOWS
+
+    \* ------------------------- */
+
+    $box-shadow: 0 2px 12px 0 rgba(0,0,0,.08);
+    $box-shadow-inset: inset 0 2px 12px 0 rgba(0,0,0, .3);
+    $box-shadow-accent: 0 2px 4px rgba(0, 0, 0, 0.22), -3px -2px 6px rgba(0, 0, 0, 0.14);
+    $opacity-hover: 0.8;
+
+    /* ------------------------- *\
+
+                CONFIG
+
+    \* ------------------------- */
+
+    $menu-width: 17rem;
+    $header-height: 4.5rem;
+    $main-height: calc(100vh - #{$header-height} - 3rem);
+    $main-padding-y: 1.5rem;
+    $main-padding-x: 2rem;
+    $menu-transition-duration: .8s;
+
 // }
 
 
-// Colors
-$color-lightgreen: #F3F8EB;
-$color-green: #8bbf45;
-$color-palegreen: #a6d568;
-$color-red: #d32f2f;
-$color-purple: #6418C3;
-$color-odoo: #875a7b;
-$color-pink: #E55386;
-$color-yellow: #ffeb3b;
-$color-darkyellow: #fbc02d;
-$color-blue: #2196f3;
-
-
-$color-lightgray: #f1f1f1;
-$color-lightgray-2: #F2F2F2;
-
-
-$color-gray: #9e9e9e;
-$color-gray-2: #ccc;
-$color-darkgray: #777;
-$color-gray-text: #444;
-
-
-$body-color: #585858;
-$link-color: $color-darkgray;
-$link-hover-color: $color-green;
 
 
 
-/* ------------------------- *\
-
-            CONFIG
-
-\* ------------------------- */
-
-$menu-width: 17rem;
-$header-height: 4.5rem;
-$main-height: calc(100vh - #{$header-height} - 3rem);
-$main-padding-y: 1.5rem;
-$main-padding-x: 2rem;
-$menu-transition-duration: .8s;
 
 
-// COULEURS DES STATUS
-$color-status-noshow: #d32f2f;
-$color-status-analysisplu: #9c27b0;
-$color-status-upsell: #3949ab;
-$color-status-opportunite: #00bcd4;
-$color-status-created: #2196f3;
-$color-status-signed: #8bbf45;
-$color-status-accepte-mairie: #8bbf45;
-$color-status-wc: #9e9d24;
-$color-status-declarationtravaux: #fdd835;
-$color-status-mairie: #fdf335;
-$color-status-planificiation: #fb8c00;
-$color-status-attente-50: #fb8c00;
-$color-status-closed: #616161;
-$color-status-loss: #000000;
-
-
-// COULEURS DES TACHES
-$color-task-wcr: #d32f2f;
-$color-task-analysisplu: #9c27b0;
-$color-task-r: #00bcd4;
-$color-task-pm: #2196f3;
-$color-task-insertion: #8bbf45;
-$color-task-wc: #9e9d24;
-$color-task-decharge: #fdd835;
-$color-task-envoyermairie: #fb8c00;
 
 

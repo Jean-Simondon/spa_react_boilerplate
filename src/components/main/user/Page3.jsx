@@ -2,11 +2,11 @@ import React from 'react';
 
 const Page3 = (props) => {
 
-    return (
-      <>
-        <h2>This is the Page 3</h2>
-      </>
-    )
+  return (
+    <div className="center">
+      <h2>This is the Page 3 User</h2>
+    </div>
+  )
 
 }
 

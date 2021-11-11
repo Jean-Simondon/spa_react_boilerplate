@@ -8,7 +8,6 @@ import * as serviceWorkerRegistration from './utils/serviceWorkerRegistration'
 import reportWebVitals from './utils/reportWebVitals'
 
 import store from './redux/store'
-
 import App from './components/App'
 
 
@@ -20,7 +19,7 @@ ReactDOM.render(
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('app')
 );
 
 serviceWorkerRegistration.unregister()

@@ -1,0 +1,62 @@
+.button {
+    color: blue;
+    background-color: blue;
+
+    &:hover {
+      box-shadow: 4px 4px 10px;
+    }
+
+}
+
+.button.invalid {
+    color: red;
+    background-color: red;
+}
+
+@media (max-width: 760px) {
+    .button {
+        width: 400px;
+    }
+}
+
+
+// form {
+//     width: 250px;
+//     display:flex;
+//     flex-direction: column;
+//     align-items: center;
+
+//     input {
+//         display: block;
+//         margin: 4px;
+//     }
+
+    // button {
+    //     margin: 4px;
+    //     width: 100px;
+
+    //     padding: 12px;
+    //     border-radius: 10px;
+    //     box-shadow: 4px 4px 10px;
+    //     border: none;
+
+    //     &:hover {
+    //         box-shadow: 12px 12px 20px;
+    //         transform: translateY(-3px);
+    //         transition: 0.2s;
+    //     }
+    //     // border
+
+    // }
+
+//     .invalid input {
+        
+//     }
+
+//     input.invalid label {
+//         color: red
+//     }
+
+// }
+
+

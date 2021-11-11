@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory, useRouteMatch } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { authActions } from '../../redux/authSlice'
 import {
   //   ArrowDropDown as ArrowDropDownIcon,
@@ -8,25 +8,21 @@ import {
   //   Menu as MenuIcon,
   //   AccountCircle as AccountCircleIcon
 } from '@material-ui/icons'
-import '.css/header.scss'
+import styles from './css/Header.module.scss'
 
 const SuperAdminHeader = (props) => {
 
-  let history = useHistory();
-  let { path, url } = useRouteMatch();
+  let navigate = useNavigate();
+  // let { path, url } = useRouteMatch();
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user)
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
   const role = useSelector(state => state.auth.role)
 
-  if (!isLoggedIn) {
-    history.push("/");
-  }
-
   return (
-    <header className="header">
+    <header className={styles.header}>
 
-      <nav className="nav-corner">
+      <nav className={styles.nav_corner}>
         <Link to="/">Home</Link>
         {role === 'USER' && <Link to="/dashboard">Account</Link>}
         {role === 'ADMIN' && <Link to="/admin">Dashboard</Link>}

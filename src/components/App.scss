@@ -1,14 +1,20 @@
 
-.with-sidebar {
-  display: flex;
-  flex-direction: row;
-}
+// .with-sidebar {
+//   display: flex;
+//   flex-direction: row;
+// }
 
-.without-sidebar {
-  display: flex;
-}
+// .without-sidebar {
+//   display: flex;
+// }
 
-.page-container {
-  min-height: #{$main-height};
-  min-height: 100vh;
-}
+// .page-container {
+//   min-height: #{$main-height};
+//   min-height: 100vh;
+// }
+
+/*
+let style = "......;"
+use style={{syle}}
+to give the right heigth and witdh to main content because sidebar, footer, and header
+*/
