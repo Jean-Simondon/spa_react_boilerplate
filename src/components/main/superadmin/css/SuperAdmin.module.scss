@@ -1,0 +1,11 @@
+$header-height: 40px;
+$footer-height: 20px;
+
+.page-container {
+    min-height: calc(100vh - $header-height - $footer-height);
+}
+
+.with-sidebar {
+    display: flex;
+    flex-direction: row;
+}

@@ -40,24 +40,24 @@
 // Bouton avec un effet de profondeur "Web 2.0"
 .btn-gradient {
   @extend %btn;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%) var(--contrast);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%) $contrast;
 }
 
 .btn-primary {
   @extend %btn;
-  background: var(--contrast);
-  border: solid 1px var(--contrast);
+  background: $contrast;
+  border: solid 1px $contrast;
 }
 
 .btn-primary-outlined {
   @extend %btn;
-  border: 1px solid var(--contrast);
-  color: var(--contrast);
+  border: 1px solid $contrast;
+  color: $contrast;
   box-shadow: none;
 
   &:hover {
     filter: none;
-    background: var(--contrast);
+    background: $contrast;
     color: #fff;
   }
 }
@@ -75,21 +75,21 @@
 
 .btn-danger {
   @extend %btn;
-  background: var(--red);
+  background: $red;
 }
 
 .btn-secondary {
   @extend %btn;
   font-weight: normal;
-  color: var(--color) !important;
+  color: $color !important;
   background: #ffff;
-  border: 1px solid var(--border) !important;
+  border: 1px solid $border !important;
 
   &:focus,
   &.active,
   &[aria-expanded="true"] {
-    color: var(--contrast);
-    border-color: var(--contrast) !important;
+    color: $contrast;
+    border-color: $contrast !important;
   }
 
   // @include dark {
@@ -99,7 +99,7 @@
   //   &:focus,
   //   &.active,
   //   &[aria-expanded="true"] {
-  //     border-color: var(--contrast) !important;
+  //     border-color: $contrast !important;
   //   }
   // }
 }
@@ -179,7 +179,7 @@
     height: 18px;
     z-index: -1;
     border-radius: 50%;
-    background: var(--icon-background);
+    background: $icon-background;
   }
 
   &::before {
@@ -188,7 +188,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: var(--icon-background);
+    background: $icon-background;
     content:'';
     border-radius: 37px;
     z-index: -1;
@@ -216,7 +216,7 @@
     border-radius: 0;
   }
   &::before {
-    background: var(--border-light);
+    background: $border-light;
     opacity: 1;
     // @include dark {
     //   background: #FFFFFF19;
@@ -225,11 +225,11 @@
 }
 
 .rounded-button.danger {
-  --icon-background: var(--red);
+  --icon-background: $red;
 }
 
 .rounded-button.success {
-  --icon-background: var(--green);
+  --icon-background: $green;
 }
 
 // Couleurs

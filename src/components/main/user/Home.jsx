@@ -3,9 +3,10 @@ import React from 'react';
 const Home = (props) => {
 
   return (
-    <div className="center">
-      <h2>This is the Home</h2>
-    </div>
+    // <div className="center">
+    // <div className="center">
+      <h2>This is User Home</h2>
+    // </div>
   )
 
 }

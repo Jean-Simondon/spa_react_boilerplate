@@ -9,22 +9,22 @@
 
 // Conteneur
 // ==================
-:root {
-    --container-padding: 20px;
-    --container-width: calc(100vw - var(--container-padding) * 2); // 
-}
+// :root {
+$container-padding: 20px;
+$container-width: calc(100vw - $container-padding * 2); // 
+// }
 
 @media only screen and (min-width: 900px) {
-    :root {
-        --container-padding: 32px;
-    }
+    // :root {
+        $container-padding: 32px;
+    // }
 }
 
 @media only screen and (min-width: 1370px) {
-    :root {
-        --container-padding: 20px;
-        --container-width: 1330px;
-    }
+    // :root {
+        $container-padding: 20px;
+        $container-width: 1330px;
+    // }
 }
 
 // .waves {
@@ -76,14 +76,14 @@
 .container {
     box-sizing: border-box;
     width: 100%;
-    padding-left: calc(50% - var(--container-width) / 2);
-    padding-right: calc(50% - var(--container-width) / 2);
+    padding-left: calc(50% - $container-width / 2);
+    padding-right: calc(50% - $container-width / 2);
 }
 
 %container-margin {
     margin-left: auto;
     margin-right: auto;
-    width: var(--container-width);
+    width: $container-width;
 }
 
 .container-narrow {
@@ -183,14 +183,14 @@
     width: 100%;
     display: grid !important;
     grid-gap: space(2);
-    grid-template-columns: repeat(auto-fill, minmax(var(--col, 275px), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax($col, 275px, 1fr));
 }
 
 .grid2 {
     width: 100%;
     display: grid !important;
-    --gap: 2;
-    grid-gap: calc(var(--gap) * var(--space));
+    $gap: 2;
+    grid-gap: calc($gap * $space);
     grid-template-columns: 1fr;
   
     @include up(730) {
@@ -201,8 +201,8 @@
 .grid3 {
     width: 100%;
     display: grid !important;
-    --gap: 2;
-    grid-gap: calc(var(--gap) * var(--space));
+    $gap: 2;
+    grid-gap: calc($gap * $space);
     grid-template-columns: 1fr;
   
     @include up(730) {
@@ -211,7 +211,7 @@
 }
 
 .grid.fit {
-    grid-template-columns: repeat(auto-fit, minmax(var(--col, 275px), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax($col, 275px, 1fr));
 }
 
 .grid .full,
@@ -229,11 +229,11 @@
   .stack,
   .stack-large,
   .stack-separated {
-    --gap: 2;
+    $gap: 2;
     display: grid !important;
     grid-template-columns: 1fr;
     align-content: flex-start;
-    grid-gap: calc(var(--gap) * var(--space));
+    grid-gap: calc($gap * $space);
   
     & > * {
       min-width: 0;
@@ -241,13 +241,13 @@
 }
 
 .stack-large {
-    --gap: 4;
+    $gap: 4;
 }
 
 .stack-separated {
-    --gap: 3;
-    --gap-separated: var(--gap);
-    grid-gap: calc(var(--gap) * var(--space) * 2);
+    $gap: 3;
+    $gap-separated: $gap;
+    grid-gap: calc($gap * $space * 2);
 }
 
 .stack-separated > * + * {
@@ -261,16 +261,16 @@
     right: 0;
     height: 1px;
     width: 100%;
-    background: var(--border-light);
-    top: calc(var(--gap-separated) * var(--space) * -1);
+    background: $border-light;
+    top: calc($gap-separated * $space * -1);
 }
 
 .hstack {
     display: flex;
     flex-wrap: wrap;
-    --gap: 2;
-    margin: calc(var(--gap) * var(--space) * -0.5);
-    margin-bottom: calc(var(--gap) * var(--space) * -1);
+    $gap: 2;
+    margin: calc($gap * $space * -0.5);
+    margin-bottom: calc($gap * $space * -1);
     margin-top: 0;
 }
 
@@ -279,9 +279,9 @@
 }
 
 .hstack > * {
-    margin-left: calc(var(--gap) * var(--space) * 0.5);
-    margin-right: calc(var(--gap) * var(--space) * 0.5);
-    margin-bottom: calc(var(--gap) * var(--space));
+    margin-left: calc($gap * $space * 0.5);
+    margin-right: calc($gap * $space * 0.5);
+    margin-bottom: calc($gap * $space);
 }
 
 .hstack-large > * + * {
@@ -292,9 +292,9 @@
 // ==================
 .layout-sidebar {
     @extend %container;
-        --gap: 5;
+        $gap: 5;
         display: grid;
-        grid-gap: calc(var(--gap) * var(--space));
+        grid-gap: calc($gap * $space);
         grid-template-columns: 1fr;
 
     & > * {

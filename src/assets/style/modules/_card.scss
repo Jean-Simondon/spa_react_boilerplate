@@ -3,30 +3,30 @@
 }
 
 .shadow {
-  box-shadow: 0 2px 20px var(--shadow);
+  box-shadow: 0 2px 20px $shadow;
 }
 
 .card,
 %card {
-  background: var(--card-bg, var(--background-light));
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 4px var(--shadow);
+  background: $card-bg, $background-light;
+  border: 1px solid $border;
+  box-shadow: 0 2px 4px $shadow;
   border-radius: 3px;
   transition: 0.3s;
 }
 
 .card-big,
 %card-big {
-  background: var(--card-bg, var(--background-light));
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 20px var(--shadow);
+  background: $card-bg, $background-light;
+  border: 1px solid $border;
+  box-shadow: 0 2px 20px $shadow;
   border-radius: 4px;
 }
 
 %card-hoverable {
   &:hover {
-    border-color: var(--contrast);
-    box-shadow: 0 3px 8px var(--shadow);
+    border-color: $contrast;
+    box-shadow: 0 3px 8px $shadow;
   }
 }
 
@@ -43,7 +43,7 @@
   flex-direction: column;
 }
 .card__body {
-  padding: var(--card-padding);
+  padding: $card-padding;
 }
 .card__icons {
   display: flex;
@@ -51,7 +51,7 @@
   align-items: center;
 }
 .card__description p {
-  color: var(--color-light)
+  color: $color-light
 }
 .card__title {
   font-family: $font-alt;
@@ -73,8 +73,8 @@
   display: flex;
   align-items: center;
   min-height: 36px;
-  background: var(--card-bg-footer, var(--card-footer));
-  padding: 0 var(--card-padding);
+  background: $card-bg-footer, $card-footer;
+  padding: 0 $card-padding;
   font-size: .9rem;
 
   .card__progress ~ & {
@@ -82,7 +82,7 @@
   }
 
   & > * {
-    color: var(--color-light);
+    color: $color-light;
     white-space: nowrap;
   }
 
@@ -111,7 +111,7 @@
   z-index: 3;
 }
 .card a:not([class^='btn']):not([class^='pill']):hover {
-  color: var(--contrast);
+  color: $contrast;
 }
 .card__link {
   display: block;
@@ -129,17 +129,17 @@
   cursor: pointer;
 }
 .card__link:hover {
-  border: 1px solid var(--contrast);
+  border: 1px solid $contrast;
 }
 .card__progress {
   opacity: 0;
   margin-top: auto;
-  background: var(--border);
+  background: $border;
   span {
-    width: calc(var(--progress, 0) * 100%);
+    width: calc($progress, 0 * 100%);
     height: 3px;
     display: block;
-    background: var(--contrast);
+    background: $contrast;
   }
 }
 [style^='--progress'] .card__progress {
@@ -177,10 +177,10 @@
 // Premium
 // =============
 .card-premium {
-  box-shadow: 0 0 0 4px var(--yellow-alpha);
+  box-shadow: 0 0 0 4px $yellow-alpha;
 
   .card__link:hover {
-    border: 1px solid var(--yellow);
+    border: 1px solid $yellow;
   }
 }
 .user-premium .card__description .countdown {
@@ -209,7 +209,7 @@
     strong {
       line-height: 1;
       font-size: 1.5rem;
-      color: var(--color-dark);
+      color: $color-dark;
       font-weight: bold;
     }
   }
@@ -220,7 +220,7 @@
 .card.is-completed,
 .is-completed .card{
   position: relative;
-  box-shadow: 0 0 0 4px var(--contrast);
+  box-shadow: 0 0 0 4px $contrast;
 }
 .card.is-completed::after,
 .is-completed .card::after {
@@ -243,7 +243,7 @@
   top: -1px;
   right: -1px;
   border-left: solid 48px transparent;
-  border-top: solid 48px var(--contrast);
+  border-top: solid 48px $contrast;
 }
 
 // Illustration

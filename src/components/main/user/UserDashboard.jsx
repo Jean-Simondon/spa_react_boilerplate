@@ -1,20 +1,23 @@
 import React from 'react'
-import { Routes, Route, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
+
+import styles from './css/User.module.scss'
 
 import UserHeader from '../../header/UserHeader'
 import UserSidebar from '../../sidebar/UserSidebar'
-import UserFooter from '../../footer/UserFooter'
+// import UserFooter from '../../footer/UserFooter'
 
 const UserDashboard = () => {
 
   return (
     <main className="">
       <UserHeader />
-      <div className="flex row page-container">
+      {/* <div className="flex row page-container"> */}
+      <div className={styles['with-sidebar']}>
         <UserSidebar />
         <Outlet />
       </div>
-      <UserFooter />
+      {/* <UserFooter /> */}
     </main>
   )
 }

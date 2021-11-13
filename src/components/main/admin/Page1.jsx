@@ -4,7 +4,7 @@ const Page1 = (props) => {
 
   return (
       <>
-        <h2>This is the Page 1</h2>
+        <h2>This is the admin Page 1</h2>
       </>
   )
 

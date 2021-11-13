@@ -4,7 +4,7 @@ const Home = (props) => {
 
   return (
     <>
-      <h2>This is the Home</h2>
+      <h2>This is the super admin Home</h2>
     </>
   )
 

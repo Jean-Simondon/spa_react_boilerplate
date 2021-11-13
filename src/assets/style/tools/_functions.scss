@@ -29,7 +29,7 @@
   // Espacements
   // ==================
   @function space($i) {
-    @return calc(#{$i} * var(--space));
+    @return calc(#{$i} * $space);
   }
   
   // Typographie

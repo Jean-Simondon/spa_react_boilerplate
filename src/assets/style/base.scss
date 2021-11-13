@@ -3,13 +3,13 @@
 // ==================
 @import './tools/variables';
 @import './tools/reset';
-@import './tools/functions';
-@import './tools/mixins';
-@import './tools/layout';
-@import './tools/typography';
-@import './tools/animations';
-@import './tools/media-queries';
-@import './tools/dark-mode';
+// @import './tools/functions';
+// @import './tools/mixins';
+// @import './tools/layout';
+// @import './tools/typography';
+// @import './tools/animations';
+// @import './tools/media-queries';
+// @import './tools/dark-mode';
 
 
 /* ------------------------- *\
@@ -22,23 +22,22 @@ body {
   margin: 0;
   box-sizing: border-box;
   position: relative;
-  scroll-margin: 100px 0 0 0;
+  // scroll-margin: 100px 0 0 0;
 
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
-    // font-size: $font-size-root;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  color: $body-color;
+  color: $color;
   line-height: 1.6;
   word-break: break-word;
 
-  background: $background;
+  background: $background-color;
 }
 
 // body.light {
-//   background: var(--background-light);
+//   background: $background-light;
 //   &::after {
 //     display: none;
 //   }

@@ -33,9 +33,7 @@ const SuperAdminPage3 = React.lazy(() => import('./main/superadmin/Page3'))
 
 const App = () => {
 
-  // let { path, url } = useRouteMatch();
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
   const location = useLocation();
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const role = useSelector(state => state.auth.role)
@@ -59,14 +57,14 @@ const App = () => {
     }
   } else if( location.pathname.startsWith("/dashboard")) {
     withside_bar = ' with-sidebar';
-    if( !isLoggedIn || role !== "USER" ) {
+    if( !isLoggedIn || ( role !== "USER" && role !== "ADMIN" && role !== "SUPER_ADMIN" ) ) {
       // dispatch(authActions.logout());
       navigate("/");
     }
   }
 
   return (
-    <div className="old-app">
+    <div>
 
       {/* <Snackbar/> Global */}
 
@@ -81,10 +79,10 @@ const App = () => {
               <Route path="page1" element={ <Page1 />} />
               <Route path="page2" element={ <Page2 />} />
               <Route path="page3" element={ <Page3 />} />
-              <Route path="login" element={<LoginPage mode="login" />} />
-              <Route path="signin" element={<LoginPage mode="signin" />} />
-              <Route path="password-forgot" element={<LoginPage mode="password-forgot" />} />
-              <Route path="password-reset" element={<LoginPage mode="password-reset" />} />
+              <Route path="login" element={ <LoginPage mode="login" /> } />
+              <Route path="signin" element={ <LoginPage mode="signin" /> } />
+              <Route path="password-forgot" element={ <LoginPage mode="password-forgot" /> } />
+              <Route path="password-reset" element={ <LoginPage mode="password-reset" /> } />
           </Route>
 
           {/* User part of the App */}
@@ -113,52 +111,6 @@ const App = () => {
 
         </Routes>
       </Suspense>
-
-
-
-      {/* HEADER */}
-      {/* <Routes>
-        {routes.map((route, idx) => {
-          return route.header && (
-            <Route key={idx} path={route.path} element={ <route.header {...route} /> } />
-          )
-        })
-        }
-      </Routes> */}
-
-      {/* <main className={"page-container" + withside_bar}> */}
-
-        {/* SIDEBAR */}
-        {/* <Routes>
-          {routes.map((route, idx) => {
-            return route.sidebar && (
-              <Route key={idx} path={route.path} element={ <route.sidebar {...route} /> } />
-              )
-          })
-          }
-        </Routes> */}
-
-        {/* MAIN */}
-        {/* <Routes>
-          {routes.map((route, idx) => {
-            return route.main && (
-              <Route key={idx} path={route.path} element={ <route.main {...route} /> } />
-            )
-          })
-          }
-        </Routes> */}
-
-      {/* </main> */}
-
-      {/* FOOTER */}
-      {/* <Routes>
-        {routes.map((route, idx) => {
-          return route.footer && (
-            <Route key={idx} path={route.path} element={ <route.footer {...route} /> } />
-          )
-        })
-        }
-      </Routes> */}
 
     </div>
   )

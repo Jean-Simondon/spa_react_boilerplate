@@ -42,14 +42,14 @@
 // // =============
 // .ts-dropdown {
 //   white-space: nowrap;
-//   border: 1px solid var(--border);
+//   border: 1px solid $border;
 //   position: absolute;
 //   z-index: 100;
 //   min-width: 100%;
 //   left: 0;
 //   font-size: .875rem;
-//   background-color: var(--background-light);
-//   color: var(--color-light);
+//   background-color: $background-light;
+//   color: $color-light;
 // }
 
 // .ts-dropdown-content {
@@ -69,19 +69,19 @@
 
 // .ts-dropdown .option:hover,
 // .ts-dropdown .option.active {
-//   background: var(--background);
-//   color: var(--color);
+//   background: $background;
+//   color: $color;
 // }
 
 // .ts-dropdown .option .highlight {
-//   background-color: var(--contrast25);
+//   background-color: $contrast25;
 //   font-weight: bold;
-//   color: var(--color);
+//   color: $color;
 // }
 
 // .ts-dropdown .optgroup-header {
 //   font-weight: bold;
-//   color: var(--color);
+//   color: $color;
 // }
 
 // .ts-dropdown .optgroup-header ~ .option {
@@ -114,7 +114,7 @@
 //   width: 16px;
 //   height: 16px;
 //   border-radius: 16px;
-//   border-left: solid 2px var(--contrast);
+//   border-left: solid 2px $contrast;
 //   display: block;
 //   animation: tsDropdownSpinner 1s linear infinite;
 // }
@@ -130,7 +130,7 @@
 //   padding-right: space(4)!important;
 // }
 // .ts-control.single .ts-input::after {
-//   border-color: var(--color-light) transparent transparent;
+//   border-color: $color-light transparent transparent;
 //   border-style: solid;
 //   border-width: 4px 4px 0;
 //   content: " ";
@@ -144,7 +144,7 @@
 //   transition: border .3s;
 // }
 // .ts-control.single .ts-input.focus::after {
-//   border-color: var(--color) transparent transparent;
+//   border-color: $color transparent transparent;
 // }
 // .ts-control.single .ts-input input {
 //   margin-left: .5rem;
@@ -158,7 +158,7 @@
 
 // .ts-control.multi .ts-input .item {
 //   white-space: nowrap;
-//   background: var(--contrast);
+//   background: $contrast;
 //   font-size: 0.9rem;
 //   padding: 4px 10px;
 //   border-radius: 20px;

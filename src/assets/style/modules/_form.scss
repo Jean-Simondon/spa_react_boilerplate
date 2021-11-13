@@ -26,8 +26,8 @@ label {
 .form-group textarea,
 .form-group select,
 %input {
-  border: 1px solid var(--border);
-  background: var(--background-form);
+  border: 1px solid $border;
+  background: $background-form;
   border-radius: 3px;
   color: black;
   padding: space(1.5) space(1);
@@ -80,8 +80,8 @@ label {
 //   width: 18px;
 //   height: 18px;
 //   margin-top: -3px;
-//   border: 1px solid var(--border);
-//   background: var(--background);
+//   border: 1px solid $border;
+//   background: $background;
 //   margin-right: space(1);
 // }
 // .form-check label::after {
@@ -92,7 +92,7 @@ label {
 //   left: 4px;
 //   width: 10px;
 //   height: 10px;
-//   background: var(--contrast);
+//   background: $contrast;
 //   transform: scale(0);
 // }
 // .form-check input:checked + label::after {
@@ -130,8 +130,8 @@ label {
 //   width: 55px;
 //   height: 26px;
 //   display: inline-block;
-//   background: var(--background);
-//   border: 1px solid var(--border);
+//   background: $background;
+//   border: 1px solid $border;
 //   box-shadow: 0 1px 4px rgba(213, 222, 233, 0.2);
 
 //   border-radius: 100px;
@@ -143,8 +143,8 @@ label {
 //     display: block;
 //     height: 24px;
 //     width: 24px;
-//     background: var(--background-light);
-//     border: 1px solid var(--border);
+//     background: $background-light;
+//     border: 1px solid $border;
 //     box-shadow: 0 1px 4px rgba(213, 222, 233, 0.2);
 //     border-radius: 100px;
 //     transition: transform 0.3s;
@@ -154,14 +154,14 @@ label {
 //     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 
 //     &::before {
-//       background: var(--color);
-//       border-color: var(--color-light);
+//       background: $color;
+//       border-color: $color-light;
 //       box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 //     }
 //   }
 // }
 // input:checked + label .switch {
-//   background-color: var(--contrast);
+//   background-color: $contrast;
 // }
 // input:checked + label .switch::before {
 //   transform: translateX(31px);
@@ -206,14 +206,14 @@ label {
 // form button:focus,
 // input:focus + label .switch,
 // %input-active {
-//   border-color: var(--contrast);
-//   box-shadow: 0 0 0 3px var(--contrast25);
+//   border-color: $contrast;
+//   box-shadow: 0 0 0 3px $contrast25;
 // }
 
 // Misc
 // ==================
 // button:not([class]):hover .icon-delete {
-//   color: var(--red);
+//   color: $red;
 // }
 
 // Radio
@@ -225,7 +225,7 @@ label {
 //   width: 20px;
 //   height: 20px;
 //   border-radius: 50%;
-//   border: 1px solid var(--border);
+//   border: 1px solid $border;
 //   transition: border .3s;
 
 //   &::after {
@@ -246,11 +246,11 @@ label {
 //   }
 
 //   &.is-checked {
-//     border-color: var(--contrast);
+//     border-color: $contrast;
 //   }
 
 //   &.is-checked::after {
-//     background: var(--contrast);
+//     background: $contrast;
 //   }
 
 //   input {
@@ -277,10 +277,10 @@ label {
 //   }
 
 //   &.is-checked {
-//     border-color: var(--contrast);
+//     border-color: $contrast;
 //   }
 
 //   &.is-checked::after {
-//     background: var(--contrast);
+//     background: $contrast;
 //   }
 // }

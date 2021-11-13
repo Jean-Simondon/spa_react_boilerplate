@@ -1,24 +1,8 @@
 import React, { useState, useRef, useEffect, useReducer } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { login, signin } from '../../redux/authSlice'
-import styled from 'styled-components'
-// import { getErrorMsgFromSymfonyResponse } from '../../../utils/helpers'
-
-import styles from './css/form.module.scss'
-
-// const Button = styled.button`
-//     color: blue;
-//     background-color: ${props => ( props.invalid ? 'red' : 'blue')};
-    
-//     /* @media (max-width: 760px) {
-//       width: 400px;
-//     } */
-
-//     &:hover {
-//       box-shadow: 4px 4px 10px;
-//     }
-//   `;
+import styles from './css/Form.module.scss'
 
 const formReducer = (state, action) => {
   switch(action.type) {
@@ -235,7 +219,7 @@ const LoginForm = (props) => {
   }
 
   return (
-    <>
+    <div className={styles['login-container']}>
       {props.mode === 'login' &&
         <form onSubmit={onFormSubmit}>
 
@@ -388,7 +372,7 @@ const LoginForm = (props) => {
           </button>
         </form>
       } */}
-    </>
+    </div>
   )
 
 }

@@ -4,7 +4,7 @@ const Page2 = (props) => {
 
   return (
     <div className="center">
-      <h2>This is the Page 2 User</h2>
+      <h2>This is the User Page 2</h2>
     </div>
   )
 
