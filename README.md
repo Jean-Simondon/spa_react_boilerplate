@@ -6,7 +6,6 @@
 #### Graphique et autre librairie JS
 #### Pptimisation (voir Udemy)
 #### Mettre en place outils de dev et débug  (voir Udemy)
-#### Mettre en place vite js
 #### Mettre en place NextJS et SSR (voir Udemy)
 #### Fonctionnalité de CMS
 #### Test unitaire (voir Udemy)
@@ -15,6 +14,6 @@
 #### Responsive
 #### Mettre en place Typescript (voir Udemy)
 
-
 #### Look for static website hosting services
 
+### Système de classe dans redux

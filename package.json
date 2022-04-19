@@ -26,14 +26,13 @@
     "lodash.debounce": "^4.0.8",
     "luxon": "^1.25.0",
     "mime": "^2.4.6",
-    "node-sass": "4.14.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-hook-form": "^6.13.0",
     "react-redux": "^7.2.2",
     "react-router-dom": "^6.0.2",
     "react-router-redux": "^4.0.8",
-    "react-scripts": "4.0.2",
+    "react-scripts": "^5.0.1",
     "react-select": "^3.1.0",
     "react-use": "^17.1.1",
     "redux-devtools-extension": "^2.13.9",
@@ -56,12 +55,9 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "1.0.5",
-    "redux-devtools": "^3.7.0",
-    "vite": "^2.6.4"
+    "redux-devtools": "^3.7.0"
   },
   "scripts": {
-    "dev": "vite",
     "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "seemless-build": "BUILD_PATH='./build-tmp' react-scripts build && rm -rf ./build && mv ./build-tmp ./build",

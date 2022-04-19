@@ -2,18 +2,10 @@ import axios from 'axios'
 import store from '../redux/store'
 import { authActions } from '../redux/authSlice'
 
-// let URL_API = "";
-
-// if ( !(typeof process === 'undefined') && process.env !== undefined && process.env.REACT_APP_API_URL !== undefined ) {
-//   URL_API = process.env.REACT_APP_API_URL;
-// } else if ( import.meta.env.VITE_APP_API_URL !== undefined ) {
-//   URL_API = import.meta.env.VITE_APP_API_URL;
-// } else {
 let URL_API = "http://localhost:8000/api";
-// }
 
 if ( URL_API === "" ) {
-  console.warn('Env variable REACT_APP_API_URL || VITE_APP_API_URL is not defined')
+  console.warn('Env variable REACT_APP_API_URL is not defined')
 }
 
 const axiosInstance = axios.create({
