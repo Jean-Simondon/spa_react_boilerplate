@@ -1,64 +1,60 @@
 import React, { Suspense } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
-// import { authActions } from '../redux/authSlice'
-// import Snackbar from './commons/Snackbar'
+import { authActions } from '../redux/authSlice'
+import Snackbar from '../components/commons/Snackbar'
 import './App.scss'
 
-const Public = React.lazy(() => import('./main/public/Public'))
-const Home = React.lazy(() => import('./main/public/Home'))
-const Page1 = React.lazy(() => import('./main/public/Page1'))
-const Page2 = React.lazy(() => import('./main/public/Page2'))
-const Page3 = React.lazy(() => import('./main/public/Page3'))
-const LoginPage = React.lazy(() => import('./main/public/LoginPage'))
+const Public = React.lazy(() => import('./public/Public'))
+const Home = React.lazy(() => import('./public/Home'))
+const Page1 = React.lazy(() => import('./public/Page1'))
+const Page2 = React.lazy(() => import('./public/Page2'))
+const Page3 = React.lazy(() => import('./public/Page3'))
+const LoginPage = React.lazy(() => import('./public/LoginPage'))
 
-const UserDashboard = React.lazy(() => import('./main/user/UserDashboard'))
-const UserHome = React.lazy(() => import('./main/user/Home'))
-const UserPage1 = React.lazy(() => import('./main/user/Page1'))
-const UserPage2 = React.lazy(() => import('./main/user/Page2'))
-const UserPage3 = React.lazy(() => import('./main/user/Page3'))
+const UserDashboard = React.lazy(() => import('./user/UserDashboard'))
+const UserHome = React.lazy(() => import('./user/Home'))
+const UserPage1 = React.lazy(() => import('./user/Page1'))
+const UserPage2 = React.lazy(() => import('./user/Page2'))
+const UserPage3 = React.lazy(() => import('./user/Page3'))
 
-const AdminDashboard = React.lazy(() => import('./main/admin/AdminDashboard'))
-const AdminHome = React.lazy(() => import('./main/admin/Home'))
-const AdminPage1 = React.lazy(() => import('./main/admin/Page1'))
-const AdminPage2 = React.lazy(() => import('./main/admin/Page2'))
-const AdminPage3 = React.lazy(() => import('./main/admin/Page3'))
+const AdminDashboard = React.lazy(() => import('./admin/AdminDashboard'))
+const AdminHome = React.lazy(() => import('./admin/Home'))
+const AdminPage1 = React.lazy(() => import('./admin/Page1'))
+const AdminPage2 = React.lazy(() => import('./admin/Page2'))
+const AdminPage3 = React.lazy(() => import('./admin/Page3'))
 
-const SuperAdminDashboard = React.lazy(() => import('./main/superadmin/SuperAdminDashboard'))
-const SuperAdminHome = React.lazy(() => import('./main/superadmin/Home'))
-const SuperAdminPage1 = React.lazy(() => import('./main/superadmin/Page1'))
-const SuperAdminPage2 = React.lazy(() => import('./main/superadmin/Page2'))
-const SuperAdminPage3 = React.lazy(() => import('./main/superadmin/Page3'))
-
+const SuperAdminDashboard = React.lazy(() => import('./superadmin/SuperAdminDashboard'))
+const SuperAdminHome = React.lazy(() => import('./superadmin/Home'))
+const SuperAdminPage1 = React.lazy(() => import('./superadmin/Page1'))
+const SuperAdminPage2 = React.lazy(() => import('./superadmin/Page2'))
+const SuperAdminPage3 = React.lazy(() => import('./superadmin/Page3'))
 
 const App = () => {
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   const isLoggedIn = useSelector(state => state.auth.isLoggedIn);
   const role = useSelector(state => state.auth.role)
 
   /**
-   * Filtre si tentative d'accès au route protégé
+   * Filtre si tentative d'accès aux routes protégées
    * Non connecté ou pas le bon rôle
    */
-  let withside_bar = ' without-sidebar';
   if( location.pathname.startsWith("/admin")) {
-    withside_bar = ' with-sidebar';
     if( !isLoggedIn || ( role !== "ADMIN" && role !== "SUPER_ADMIN" )  ) {
-      // dispatch(authActions.logout());
+      dispatch(authActions.logout());
       navigate("/");
     }
   } else if( location.pathname.startsWith("/superadmin")) {
-    withside_bar = ' with-sidebar';
     if( !isLoggedIn || role !== "SUPER_ADMIN" ) {
-      // dispatch(authActions.logout());
+      dispatch(authActions.logout());
       navigate("/");
     }
   } else if( location.pathname.startsWith("/dashboard")) {
-    withside_bar = ' with-sidebar';
     if( !isLoggedIn || ( role !== "USER" && role !== "ADMIN" && role !== "SUPER_ADMIN" ) ) {
-      // dispatch(authActions.logout());
+      dispatch(authActions.logout());
       navigate("/");
     }
   }
@@ -66,7 +62,7 @@ const App = () => {
   return (
     <div>
 
-      {/* <Snackbar/> Global */}
+      <Snackbar/>
 
         {/* Préparer a loading spinner */}
         <Suspense fallback={<p>Loading</p>}>
@@ -83,6 +79,10 @@ const App = () => {
               <Route path="signin" element={ <LoginPage mode="signin" /> } />
               <Route path="password-forgot" element={ <LoginPage mode="password-forgot" /> } />
               <Route path="password-reset" element={ <LoginPage mode="password-reset" /> } />
+          </Route>
+
+          <Route path="/lp" element={ <></> }>
+
           </Route>
 
           {/* User part of the App */}

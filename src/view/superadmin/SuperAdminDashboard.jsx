@@ -3,9 +3,9 @@ import { Routes, Route, Outlet } from 'react-router-dom'
 
 import styles from './css/SuperAdmin.module.scss'
 
-import SuperAdminHeader from '../../header/SuperAdminHeader'
-import SuperAdminSidebar from '../../sidebar/SuperAdminSidebar'
-// import SuperAdminFooter from '../../footer/SuperAdminFooter'
+import SuperAdminHeader from '../../components/header/SuperAdminHeader'
+import SuperAdminSidebar from '../../components/sidebar/SuperAdminSidebar'
+// import SuperAdminFooter from '../../components/footer/SuperAdminFooter'
 
 const SuperAdminDashboard = () => {
 

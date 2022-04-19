@@ -3,8 +3,8 @@ import { Outlet } from 'react-router-dom'
 
 import styles from './css/User.module.scss'
 
-import UserHeader from '../../header/UserHeader'
-import UserSidebar from '../../sidebar/UserSidebar'
+import UserHeader from '../../components/header/UserHeader'
+import UserSidebar from '../../components/sidebar/UserSidebar'
 // import UserFooter from '../../footer/UserFooter'
 
 const UserDashboard = () => {

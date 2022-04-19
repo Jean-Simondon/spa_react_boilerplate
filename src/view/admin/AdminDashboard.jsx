@@ -3,9 +3,9 @@ import { Routes, Route, Outlet } from 'react-router-dom'
 
 import styles from './css/Admin.module.scss'
 
-import AdminHeader from '../../header/AdminHeader'
-import AdminSidebar from '../../sidebar/AdminSidebar'
-// import AdminFooter from '../../footer/AdminFooter'
+import AdminHeader from '../../components/header/AdminHeader'
+import AdminSidebar from '../../components/sidebar/AdminSidebar'
+// import AdminFooter from '../../components/footer/AdminFooter'
 
 const AdminDashboard = () => {
 

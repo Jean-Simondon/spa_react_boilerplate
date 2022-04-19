@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom"
 import { login, signin } from '../../redux/authSlice'
 import styles from './css/Form.module.scss'
+import { snackbarActions } from '../../redux/snackbarSlice'
 
 const formReducer = (state, action) => {
   switch(action.type) {
@@ -77,9 +78,11 @@ const LoginForm = (props) => {
   const onFormSubmit = (target) => {
     target.preventDefault()
 
-    let isFormValid = true;
+    snackbarActions.addSnackMessage({ severity: "error", content: "test" })
 
-    console.log(emailInputRef.current.value); // only to read value 
+    // return;
+
+    let isFormValid = true;
 
     // nom d'utilisateur requis pour la création de l'utilisateur
     if (props.mode === "signin" && firstname.trim().length === 0) {
